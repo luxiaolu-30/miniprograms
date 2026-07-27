@@ -1,0 +1,67 @@
+.image-picker {
+  padding: 0 24rpx;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.image-item {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.image-thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: var(--radius-sm);
+  border: 2rpx dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.add-icon {
+  font-size: 48rpx;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.add-text {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+  margin-top: 8rpx;
+}
+
+.hint {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+  margin-top: 16rpx;
+}

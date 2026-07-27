@@ -1,0 +1,97 @@
+<view class="container">
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stats-main">
+      <view class="stat-big">{{totalCount}}</view>
+      <view class="stat-label">件物品</view>
+    </view>
+    <view class="stats-sub">
+      <view class="stat-item">
+        <view class="stat-num">{{activeCount}}</view>
+        <view class="stat-text">在用</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-num">{{idleCount}}</view>
+        <view class="stat-text">闲置</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-num">{{disposedCount}}</view>
+        <view class="stat-text">已处理</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 品类分布 -->
+  <view wx:if="{{categoryStats.length > 0}}" class="section">
+    <view class="section-title">品类分布</view>
+    <view class="category-stats">
+      <view
+        wx:for="{{categoryStats}}"
+        wx:key="name"
+        class="cat-stat-item"
+      >
+        <text class="cat-stat-icon">{{item.icon}}</text>
+        <text class="cat-stat-name">{{item.name}}</text>
+        <text class="cat-stat-count">{{item.count}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近录入 -->
+  <view wx:if="{{recentItems.length > 0}}" class="section">
+    <view class="section-title">最近录入</view>
+    <view class="recent-list">
+      <view
+        wx:for="{{recentItems}}"
+        wx:key="id"
+        class="recent-item"
+        data-id="{{item.id}}"
+        bindtap="onViewItem"
+      >
+        <text class="recent-icon">{{item.categoryIcon}}</text>
+        <view class="recent-info">
+          <view class="recent-name text-ellipsis">{{item.name}}</view>
+          <view class="recent-meta">{{item.categoryName}} · {{item.formattedDate}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 存储信息 -->
+  <view class="section">
+    <view class="section-title">存储信息</view>
+    <view class="storage-info">
+      <view class="storage-bar">
+        <view class="storage-fill" style="width: {{(storageUsed / storageLimit) * 100}}%"></view>
+      </view>
+      <view class="storage-text">{{storageUsed}}KB / {{storageLimit}}KB ({{storageUsed > 8192 ? '建议导出备份' : '空间充足'}})</view>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="section">
+    <view class="section-title">快捷入口</view>
+    <view class="quick-links">
+      <view class="quick-link" bindtap="onGotoArchive">
+        <text class="ql-icon">📦</text>
+        <text class="ql-text">归档查看</text>
+        <text class="ql-arrow">▸</text>
+      </view>
+      <view class="quick-link" bindtap="onGotoCategories">
+        <text class="ql-icon">🏷️</text>
+        <text class="ql-text">品类管理</text>
+        <text class="ql-arrow">▸</text>
+      </view>
+      <view class="quick-link" bindtap="onExport">
+        <text class="ql-icon">📤</text>
+        <text class="ql-text">数据导出</text>
+        <text class="ql-arrow">▸</text>
+      </view>
+      <view class="quick-link" bindtap="onAbout">
+        <text class="ql-icon">ℹ️</text>
+        <text class="ql-text">关于</text>
+        <text class="ql-arrow">▸</text>
+      </view>
+    </view>
+  </view>
+</view>

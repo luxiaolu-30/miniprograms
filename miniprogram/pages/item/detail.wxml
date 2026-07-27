@@ -1,0 +1,131 @@
+<view wx:if="{{item}}" class="detail-page">
+  <!-- 图片轮播 -->
+  <view class="image-swiper">
+    <swiper
+      wx:if="{{item.images.length > 0}}"
+      indicator-dots
+      autoplay="{{false}}"
+      circular
+      class="swiper"
+    >
+      <swiper-item
+        wx:for="{{item.images}}"
+        wx:key="*this"
+        data-index="{{index}}"
+        bindtap="onPreviewImage"
+      >
+        <image class="swiper-image" src="{{item}}" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+    <view wx:else class="image-empty">
+      <text class="empty-icon">{{category ? category.icon : '📦'}}</text>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="info-section">
+    <view class="name-row">
+      <text class="item-name">{{item.name}}</text>
+      <status-badge status="{{item.status}}" />
+    </view>
+    <view class="category-row" wx:if="{{category}}">
+      <text class="cat-icon-lg">{{category.icon}}</text>
+      <text class="cat-name-lg">{{category.name}}</text>
+    </view>
+  </view>
+
+  <!-- 动态属性 -->
+  <view wx:if="{{fieldValues.length > 0}}" class="section">
+    <view class="section-title">属性详情</view>
+    <view class="fields-list">
+      <view
+        wx:for="{{fieldValues}}"
+        wx:key="label"
+        class="field-row"
+      >
+        <text class="field-label">{{item.label}}</text>
+        <text class="field-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 标签 -->
+  <view wx:if="{{item.tags.length > 0}}" class="section">
+    <view class="section-title">标签</view>
+    <view class="tags-list">
+      <text wx:for="{{item.tags}}" wx:key="*this" class="tag-chip">#{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 通用信息 -->
+  <view class="section">
+    <view class="section-title">更多信息</view>
+
+    <view wx:if="{{item.acquiredDate}}" class="info-row">
+      <text class="info-label">获取日期</text>
+      <text class="info-value">{{item.acquiredDate}}</text>
+    </view>
+
+    <view class="info-row">
+      <text class="info-label">获取方式</text>
+      <text class="info-value">{{item.acquiredMethod === 'purchased' ? '购买' : item.acquiredMethod === 'gift' ? '赠送' : item.acquiredMethod === 'self-made' ? '自制' : '其他'}}</text>
+    </view>
+
+    <view wx:if="{{item.price !== undefined && item.price !== null}}" class="info-row">
+      <text class="info-label">价格</text>
+      <text class="info-value">¥{{item.price}}</text>
+    </view>
+
+    <view wx:if="{{item.location}}" class="info-row">
+      <text class="info-label">存放位置</text>
+      <text class="info-value">{{item.location}}</text>
+    </view>
+
+    <view wx:if="{{item.note}}" class="info-row info-row-top">
+      <text class="info-label">备注</text>
+      <text class="info-value">{{item.note}}</text>
+    </view>
+  </view>
+
+  <!-- 处理信息 -->
+  <view wx:if="{{item.disposeInfo}}" class="section">
+    <view class="section-title">处理记录</view>
+    <view class="dispose-info">
+      <view class="info-row">
+        <text class="info-label">处理方式</text>
+        <text class="info-value">{{item.disposeInfo.method === 'donated' ? '捐赠' : item.disposeInfo.method === 'sold' ? '转卖' : item.disposeInfo.method === 'discarded' ? '丢弃' : '借出'}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">处理日期</text>
+        <text class="info-value">{{item.disposeInfo.date}}</text>
+      </view>
+      <view wx:if="{{item.disposeInfo.price}}" class="info-row">
+        <text class="info-label">转卖价格</text>
+        <text class="info-value">¥{{item.disposeInfo.price}}</text>
+      </view>
+      <view wx:if="{{item.disposeInfo.note}}" class="info-row info-row-top">
+        <text class="info-label">备注</text>
+        <text class="info-value">{{item.disposeInfo.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 时间信息 -->
+  <view class="time-info">
+    <text>创建于 {{formattedCreatedAt}}</text>
+    <text>更新于 {{formattedUpdatedAt}}</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions safe-bottom">
+    <button class="action-btn action-btn-primary" bindtap="onEdit">编辑</button>
+    <button class="action-btn action-btn-secondary" bindtap="onMoreAction">更多</button>
+  </view>
+
+  <!-- 处理弹窗 -->
+  <dispose-modal
+    visible="{{showDisposeModal}}"
+    bind:cancel="onHideDispose"
+    bind:confirm="onDisposeConfirm"
+  />
+</view>

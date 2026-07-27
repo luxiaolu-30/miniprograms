@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="page-title">我的分类</view>
+  <view class="page-subtitle">管理你的物品分类，自定义属性字段</view>
+
+  <view class="category-list">
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="category-card"
+    >
+      <view class="cat-main" data-id="{{item.id}}" bindtap="onViewCategory">
+        <view class="cat-icon-box">
+          <text class="cat-icon-text">{{item.icon}}</text>
+        </view>
+        <view class="cat-info">
+          <view class="cat-name">
+            {{item.name}}
+            <text wx:if="{{item.isBuiltIn}}" class="builtin-badge">预设</text>
+          </view>
+          <view class="cat-count">{{item.itemCount}} 件物品 · {{item.fields.length}} 个属性</view>
+        </view>
+      </view>
+      <view class="cat-actions">
+        <view class="cat-action-btn" data-id="{{item.id}}" catchtap="onEditCategory">编辑</view>
+        <view
+          wx:if="{{!item.isBuiltIn}}"
+          class="cat-action-btn delete"
+          data-id="{{item.id}}"
+          catchtap="onDeleteCategory"
+        >删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新增按钮 -->
+  <view class="add-category-btn" bindtap="onAddCategory">
+    <text class="add-icon">+</text>
+    <text class="add-text">新建分类</text>
+  </view>
+</view>

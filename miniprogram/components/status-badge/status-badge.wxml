@@ -1,0 +1,1 @@
+<view class="status-badge" style="color: {{color}}; background: {{bg}};">{{text}}</view>

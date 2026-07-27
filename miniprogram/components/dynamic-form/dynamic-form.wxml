@@ -1,0 +1,93 @@
+<view class="dynamic-form">
+  <view wx:if="{{fields.length === 0}}" class="no-fields">
+    该品类暂无自定义属性
+  </view>
+
+  <view
+    wx:for="{{fields}}"
+    wx:key="key"
+    class="form-field"
+  >
+    <!-- 文本输入 -->
+    <view wx:if="{{item.type === 'text'}}" class="field-group">
+      <view class="field-label">
+        {{item.label}}
+        <text wx:if="{{item.required}}" class="required">*</text>
+      </view>
+      <input
+        class="field-input"
+        value="{{formData[item.key]}}"
+        placeholder="请输入{{item.label}}"
+        data-key="{{item.key}}"
+        bindinput="onTextChange"
+      />
+    </view>
+
+    <!-- 数字输入 -->
+    <view wx:elif="{{item.type === 'number'}}" class="field-group">
+      <view class="field-label">
+        {{item.label}}
+        <text wx:if="{{item.required}}" class="required">*</text>
+      </view>
+      <input
+        class="field-input"
+        type="digit"
+        value="{{formData[item.key]}}"
+        placeholder="请输入{{item.label}}"
+        data-key="{{item.key}}"
+        bindinput="onNumberChange"
+      />
+    </view>
+
+    <!-- 单选 -->
+    <view wx:elif="{{item.type === 'select'}}" class="field-group">
+      <view class="field-label">
+        {{item.label}}
+        <text wx:if="{{item.required}}" class="required">*</text>
+      </view>
+      <picker
+        mode="selector"
+        range="{{item.options}}"
+        data-key="{{item.key}}"
+        bindchange="onSelectChange"
+      >
+        <view class="field-picker {{formData[item.key] ? '' : 'placeholder'}}">
+          {{formData[item.key] || '请选择' + item.label}}
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 日期 -->
+    <view wx:elif="{{item.type === 'date'}}" class="field-group">
+      <view class="field-label">
+        {{item.label}}
+        <text wx:if="{{item.required}}" class="required">*</text>
+      </view>
+      <picker
+        mode="date"
+        data-key="{{item.key}}"
+        bindchange="onDateChange"
+      >
+        <view class="field-picker {{formData[item.key] ? '' : 'placeholder'}}">
+          {{formData[item.key] || '请选择日期'}}
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 布尔 -->
+    <view wx:elif="{{item.type === 'boolean'}}" class="field-group field-group-row">
+      <view class="field-label">
+        {{item.label}}
+        <text wx:if="{{item.required}}" class="required">*</text>
+      </view>
+      <switch
+        checked="{{formData[item.key]}}"
+        color="#8B5E3C"
+        data-key="{{item.key}}"
+        bindchange="onBooleanChange"
+      />
+    </view>
+  </view>
+</view>

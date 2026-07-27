@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "电子衣橱",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "search-bar": "/components/search-bar/search-bar",
+    "category-chip": "/components/category-chip/category-chip",
+    "item-card": "/components/item-card/item-card",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

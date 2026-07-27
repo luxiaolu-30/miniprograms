@@ -1,0 +1,13 @@
+<view class="search-bar {{focused ? 'focused' : ''}}">
+  <view class="search-icon">🔍</view>
+  <input
+    class="search-input"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    confirm-type="search"
+    bindinput="onInput"
+    bindfocus="onFocus"
+    bindblur="onBlur"
+  />
+  <view wx:if="{{value}}" class="clear-btn" bindtap="onClear">✕</view>
+</view>

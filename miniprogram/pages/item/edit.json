@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "录入物品",
+  "usingComponents": {
+    "image-picker": "/components/image-picker/image-picker",
+    "dynamic-form": "/components/dynamic-form/dynamic-form"
+  }
+}

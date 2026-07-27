@@ -1,0 +1,203 @@
+.detail-page {
+  padding-bottom: 160rpx;
+}
+
+/* 图片轮播 */
+.swiper {
+  width: 100%;
+  height: 750rpx;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-empty {
+  width: 100%;
+  height: 600rpx;
+  background: var(--color-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  opacity: 0.4;
+}
+
+/* 基本信息 */
+.info-section {
+  padding: 32rpx 32rpx 24rpx;
+  background: #fff;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.item-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.cat-icon-lg {
+  font-size: 32rpx;
+}
+
+.cat-name-lg {
+  font-size: 26rpx;
+  color: var(--color-text-muted);
+}
+
+/* 通用 section */
+.section {
+  background: #fff;
+  margin-top: 16rpx;
+  padding: 24rpx 32rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 20rpx;
+}
+
+/* 属性列表 */
+.fields-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-row {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  width: 160rpx;
+  font-size: 26rpx;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.field-value {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+/* 标签 */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag-chip {
+  background: #FFF3E0;
+  color: var(--color-primary);
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 24rpx;
+}
+
+/* 信息行 */
+.info-row {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row-top {
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.info-label {
+  width: 160rpx;
+  font-size: 26rpx;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+/* 处理记录 */
+.dispose-info {
+  background: #f9f9f9;
+  border-radius: var(--radius-sm);
+  padding: 8rpx 20rpx;
+}
+
+/* 时间信息 */
+.time-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  padding: 24rpx 32rpx;
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+}
+
+/* 操作按钮 */
+.actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 24rpx;
+  padding: 24rpx 32rpx;
+  background: #fff;
+  border-top: 1rpx solid var(--color-border);
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}
+
+.action-btn {
+  flex: 1;
+  border-radius: var(--radius-md);
+  font-size: 30rpx;
+  padding: 22rpx;
+  border: none;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.action-btn-secondary {
+  background: #f5f5f5;
+  color: var(--color-text);
+}

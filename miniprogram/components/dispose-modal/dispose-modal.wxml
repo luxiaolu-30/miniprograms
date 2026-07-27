@@ -1,0 +1,61 @@
+<view wx:if="{{visible}}" class="modal-mask" bindtap="onCancel">
+  <view class="modal-panel" catchtap="">
+    <view class="modal-title">处理物品</view>
+
+    <!-- 处理方式 -->
+    <view class="modal-section">
+      <view class="modal-label">处理方式</view>
+      <view class="method-grid">
+        <view
+          wx:for="{{methods}}"
+          wx:key="value"
+          class="method-item {{selectedMethod === item.value ? 'selected' : ''}}"
+          data-method="{{item.value}}"
+          bindtap="onSelectMethod"
+        >
+          <text class="method-icon">{{item.icon}}</text>
+          <text class="method-label">{{item.label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 日期 -->
+    <view class="modal-section">
+      <view class="modal-label">处理日期</view>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="modal-picker">{{date}}</view>
+      </picker>
+    </view>
+
+    <!-- 价格（仅转卖） -->
+    <view wx:if="{{selectedMethod === 'sold'}}" class="modal-section">
+      <view class="modal-label">转卖价格 (元)</view>
+      <input
+        class="modal-input"
+        type="digit"
+        value="{{price}}"
+        placeholder="请输入价格"
+        bindinput="onPriceInput"
+      />
+    </view>
+
+    <!-- 备注 -->
+    <view class="modal-section">
+      <view class="modal-label">备注（选填）</view>
+      <textarea
+        class="modal-textarea"
+        value="{{note}}"
+        placeholder="如：送给张三、闲鱼出售..."
+        bindinput="onNoteInput"
+        maxlength="200"
+        auto-height
+      />
+    </view>
+
+    <!-- 按钮 -->
+    <view class="modal-actions">
+      <view class="modal-btn modal-btn-cancel" bindtap="onCancel">取消</view>
+      <view class="modal-btn modal-btn-confirm" bindtap="onConfirm">确认处理</view>
+    </view>
+  </view>
+</view>

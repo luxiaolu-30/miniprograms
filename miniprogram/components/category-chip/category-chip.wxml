@@ -1,0 +1,14 @@
+<scroll-view scroll-x class="chip-scroll" enhanced show-scrollbar="{{false}}">
+  <view class="chip-list">
+    <view
+      wx:for="{{chipList}}"
+      wx:key="id"
+      class="chip {{selectedId === item.id ? 'chip-active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="onSelect"
+    >
+      <text class="chip-icon">{{item.icon}}</text>
+      <text class="chip-name">{{item.name}}</text>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,38 @@
+.chip-scroll {
+  white-space: nowrap;
+  padding: 8rpx 0;
+}
+
+.chip-list {
+  display: inline-flex;
+  gap: 16rpx;
+  padding: 0 24rpx;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 32rpx;
+  background: #fff;
+  border: 2rpx solid var(--color-border);
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.chip-active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.chip-icon {
+  font-size: 28rpx;
+}
+
+.chip-name {
+  font-size: 26rpx;
+}

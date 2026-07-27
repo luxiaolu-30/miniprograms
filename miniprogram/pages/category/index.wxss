@@ -1,0 +1,121 @@
+.container {
+  padding: 32rpx 24rpx;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8rpx;
+}
+
+.page-subtitle {
+  font-size: 26rpx;
+  color: var(--color-text-muted);
+  margin-bottom: 40rpx;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.category-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.cat-main {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.cat-icon-box {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  background: var(--color-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-icon-text {
+  font-size: 40rpx;
+}
+
+.cat-info {
+  flex: 1;
+}
+
+.cat-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.builtin-badge {
+  font-size: 20rpx;
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+  padding: 2rpx 10rpx;
+  border-radius: 8rpx;
+  font-weight: normal;
+}
+
+.cat-count {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-top: 6rpx;
+}
+
+.cat-actions {
+  display: flex;
+  gap: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.cat-action-btn {
+  font-size: 26rpx;
+  color: var(--color-primary);
+  padding: 8rpx 24rpx;
+  border-radius: 8rpx;
+  background: var(--color-primary-bg);
+}
+
+.cat-action-btn.delete {
+  color: var(--color-danger);
+  background: #FFEBEE;
+}
+
+.add-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  margin-top: 32rpx;
+  padding: 28rpx;
+  border: 2rpx dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.add-icon {
+  font-size: 32rpx;
+  color: var(--color-text-muted);
+}
+
+.add-text {
+  font-size: 28rpx;
+  color: var(--color-text-muted);
+}

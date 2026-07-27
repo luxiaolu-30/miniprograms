@@ -1,0 +1,29 @@
+<view class="image-picker">
+  <view class="image-list">
+    <view
+      wx:for="{{localImages}}"
+      wx:key="*this"
+      class="image-item"
+      draggable="true"
+      data-index="{{index}}"
+      bindlongpress="onDragStart"
+      bindtouchend="onDragEnd"
+      bindtap="onPreviewImage"
+    >
+      <image class="image-thumb" src="{{item}}" mode="aspectFill" />
+      <view class="delete-btn" catchtap="onDeleteImage" data-index="{{index}}">✕</view>
+    </view>
+
+    <!-- 添加按钮 -->
+    <view
+      wx:if="{{localImages.length < maxCount}}"
+      class="add-btn"
+      bindtap="onChooseImage"
+    >
+      <view class="add-icon">+</view>
+      <view class="add-text">添加照片</view>
+    </view>
+  </view>
+
+  <view class="hint">长按可拖动排序，第一张为主图</view>
+</view>

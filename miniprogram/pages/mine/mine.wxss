@@ -1,0 +1,198 @@
+.container {
+  padding: 24rpx;
+  min-height: 100vh;
+}
+
+/* 统计卡片 */
+.stats-card {
+  background: linear-gradient(135deg, #8B5E3C 0%, #D4A574 100%);
+  border-radius: var(--radius-lg);
+  padding: 40rpx 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.stats-main {
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.stat-big {
+  font-size: 80rpx;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8rpx;
+}
+
+.stats-sub {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat-text {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4rpx;
+}
+
+/* 通用 section */
+.section {
+  margin-bottom: 32rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16rpx;
+}
+
+/* 品类分布 */
+.category-stats {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 8rpx 24rpx;
+}
+
+.cat-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.cat-stat-item:last-child {
+  border-bottom: none;
+}
+
+.cat-stat-icon {
+  font-size: 32rpx;
+}
+
+.cat-stat-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.cat-stat-count {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* 最近录入 */
+.recent-list {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 8rpx 24rpx;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-icon {
+  font-size: 36rpx;
+}
+
+.recent-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-name {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.recent-meta {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+  margin-top: 4rpx;
+}
+
+/* 存储信息 */
+.storage-info {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+}
+
+.storage-bar {
+  height: 12rpx;
+  background: #f0f0f0;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.storage-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 6rpx;
+  transition: width 0.3s;
+}
+
+.storage-text {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}
+
+/* 快捷入口 */
+.quick-links {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 8rpx 24rpx;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.quick-link:last-child {
+  border-bottom: none;
+}
+
+.ql-icon {
+  font-size: 32rpx;
+}
+
+.ql-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.ql-arrow {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,49 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 140rpx;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.filter-chips {
+  flex: 1;
+  overflow: hidden;
+}
+
+.view-toggle {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toggle-icon {
+  font-size: 36rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 网格视图 */
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 0 24rpx;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+/* 列表视图 */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding: 0 24rpx;
+}

@@ -1,0 +1,64 @@
+.dynamic-form {
+  padding: 0 24rpx;
+}
+
+.no-fields {
+  font-size: 26rpx;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 32rpx 0;
+}
+
+.form-field {
+  margin-bottom: 24rpx;
+}
+
+.field-group {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 20rpx 24rpx;
+}
+
+.field-group-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-label {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 12rpx;
+}
+
+.field-group-row .field-label {
+  margin-bottom: 0;
+}
+
+.required {
+  color: var(--color-danger);
+  margin-left: 4rpx;
+}
+
+.field-input {
+  font-size: 28rpx;
+  height: 60rpx;
+  color: var(--color-text);
+}
+
+.field-picker {
+  font-size: 28rpx;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-picker.placeholder {
+  color: var(--color-text-muted);
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}

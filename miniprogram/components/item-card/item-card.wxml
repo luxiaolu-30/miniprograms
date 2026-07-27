@@ -1,0 +1,46 @@
+<!-- 网格视图 -->
+<view wx:if="{{viewMode === 'grid'}}" class="card-grid" bindtap="onTap">
+  <view class="card-image-wrap">
+    <image
+      wx:if="{{imagePath}}"
+      class="card-image"
+      src="{{imagePath}}"
+      mode="aspectFill"
+      lazy-load
+    />
+    <view wx:else class="card-image card-image-empty">{{categoryIcon}}</view>
+    <status-badge status="{{item.status}}" />
+  </view>
+  <view class="card-info">
+    <view class="card-name text-ellipsis">{{item.name}}</view>
+    <view class="card-category">
+      <text class="cat-icon">{{categoryIcon}}</text>
+      <text class="cat-name">{{categoryName}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 列表视图 -->
+<view wx:else class="card-list" bindtap="onTap">
+  <view class="card-image-wrap list">
+    <image
+      wx:if="{{imagePath}}"
+      class="card-image"
+      src="{{imagePath}}"
+      mode="aspectFill"
+      lazy-load
+    />
+    <view wx:else class="card-image card-image-empty">{{categoryIcon}}</view>
+  </view>
+  <view class="card-info-list">
+    <view class="card-name text-ellipsis">{{item.name}}</view>
+    <view class="card-meta">
+      <text class="cat-icon">{{categoryIcon}}</text>
+      <text class="cat-name">{{categoryName}}</text>
+    </view>
+    <view class="card-tags text-ellipsis" wx:if="{{item.tags.length > 0}}">
+      <text wx:for="{{item.tags}}" wx:key="*this" class="tag-item">#{{item}}</text>
+    </view>
+    <status-badge status="{{item.status}}" />
+  </view>
+</view>

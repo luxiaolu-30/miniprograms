@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- 筛选 -->
+  <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="filter-list">
+      <view
+        wx:for="{{filters}}"
+        wx:key="value"
+        class="filter-chip {{currentFilter === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onFilterChange"
+      >{{item.label}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 列表 -->
+  <view wx:if="{{filteredItems.length > 0}}" class="archive-list">
+    <view
+      wx:for="{{filteredItems}}"
+      wx:key="id"
+      class="archive-card"
+      data-id="{{item.id}}"
+      bindtap="onViewDetail"
+    >
+      <view class="archive-left">
+        <text class="archive-category-icon">{{item.categoryIcon}}</text>
+      </view>
+      <view class="archive-mid">
+        <view class="archive-name text-ellipsis">{{item.name}}</view>
+        <view class="archive-meta">
+          <status-badge status="{{item.status}}" />
+          <text class="archive-date">{{disposeDate}}</text>
+        </view>
+        <view wx:if="{{item.disposeInfo.note}}" class="archive-note text-ellipsis">{{item.disposeInfo.note}}</view>
+      </view>
+      <view class="archive-right">
+        <text wx:if="{{disposePrice}}" class="archive-price">{{disposePrice}}</text>
+        <view class="restore-btn" catchtap="onRestore" data-id="{{item.id}}">恢复</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:if="{{filteredItems.length === 0}}"
+    icon="📦"
+    title="暂无归档物品"
+    desc="处理过的物品会出现在这里"
+    showAction="{{false}}"
+  />
+</view>

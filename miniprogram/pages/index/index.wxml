@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <search-bar value="{{searchKeyword}}" bind:search="onSearch" bind:clear="onClearSearch" />
+
+  <!-- 品类筛选 + 视图切换 -->
+  <view class="filter-bar">
+    <view class="filter-chips">
+      <category-chip
+        categories="{{categories}}"
+        selectedId="{{selectedCategory}}"
+        bind:select="onCategorySelect"
+      />
+    </view>
+    <view class="view-toggle" bindtap="onToggleView">
+      <text class="toggle-icon">{{viewMode === 'grid' ? '☰' : '⊞'}}</text>
+    </view>
+  </view>
+
+  <!-- 物品列表 -->
+  <view wx:if="{{!loading && filteredItems.length > 0}}" class="items-wrap">
+    <!-- 网格视图 -->
+    <view wx:if="{{viewMode === 'grid'}}" class="grid-view">
+      <view
+        wx:for="{{filteredItems}}"
+        wx:key="id"
+        class="grid-item"
+      >
+        <item-card
+          item="{{item}}"
+          viewMode="grid"
+          categoryName="{{item.categoryName}}"
+          categoryIcon="{{item.categoryIcon}}"
+          imagePath="{{item.imagePath}}"
+          bind:tap="onItemTap"
+        />
+      </view>
+    </view>
+    <!-- 列表视图 -->
+    <view wx:else class="list-view">
+      <view
+        wx:for="{{filteredItems}}"
+        wx:key="id"
+        class="list-item"
+      >
+        <item-card
+          item="{{item}}"
+          viewMode="list"
+          categoryName="{{item.categoryName}}"
+          categoryIcon="{{item.categoryIcon}}"
+          imagePath="{{item.imagePath}}"
+          bind:tap="onItemTap"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:if="{{!loading && filteredItems.length === 0}}"
+    icon="👕"
+    title="{{searchKeyword ? '没有找到匹配的物品' : '还没有物品'}}"
+    desc="{{searchKeyword ? '试试其他关键词' : '点击下方 + 按钮开始录入吧'}}"
+    showAction="{{!searchKeyword}}"
+    bind:action="onAddItem"
+  />
+
+  <!-- 悬浮按钮 -->
+  <view class="fab" bindtap="onAddItem">+</view>
+</view>

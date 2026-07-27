@@ -1,0 +1,98 @@
+/* 网格卡片 */
+.card-grid {
+  background: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 比例 */
+  overflow: hidden;
+  background: var(--color-primary-bg);
+}
+
+.card-image-wrap.list {
+  width: 200rpx;
+  height: 200rpx;
+  padding-top: 0;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+}
+
+.card-info {
+  padding: 12rpx 16rpx;
+}
+
+.card-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 6rpx;
+}
+
+.card-category {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.cat-icon {
+  font-size: 22rpx;
+}
+
+.cat-name {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+}
+
+/* 列表卡片 */
+.card-list {
+  display: flex;
+  gap: 24rpx;
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-info-list {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.card-tags {
+  margin-top: 4rpx;
+}
+
+.tag-item {
+  font-size: 22rpx;
+  color: var(--color-primary);
+  margin-right: 12rpx;
+}
