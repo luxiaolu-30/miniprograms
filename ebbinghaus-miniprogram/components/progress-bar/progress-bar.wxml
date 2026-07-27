@@ -1,0 +1,6 @@
+<view class="progress-bar">
+  <view class="progress-track">
+    <view class="progress-fill {{color}}" style="width: {{percent}}%"></view>
+  </view>
+  <text wx:if="{{showText}}" class="progress-text">{{current}}/{{total}}</text>
+</view>

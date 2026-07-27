@@ -1,0 +1,84 @@
+<view class="container">
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stats-grid">
+      <view class="stat-cell">
+        <view class="stat-value">{{totalCount}}</view>
+        <view class="stat-label">累计录入</view>
+      </view>
+      <view class="stat-cell">
+        <view class="stat-value learning">{{learningCount}}</view>
+        <view class="stat-label">学习中</view>
+      </view>
+      <view class="stat-cell">
+        <view class="stat-value mastered">{{masteredCount}}</view>
+        <view class="stat-label">已掌握</view>
+      </view>
+      <view class="stat-cell">
+        <view class="stat-value">{{todayCompleted}}</view>
+        <view class="stat-label">今日完成</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 累计复习 -->
+  <view class="review-summary card">
+    <view class="summary-item">
+      <text class="summary-label">累计完成复习</text>
+      <text class="summary-value">{{totalReviews}} 次</text>
+    </view>
+  </view>
+
+  <!-- 最近录入 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">最近录入</text>
+    </view>
+    <view wx:if="{{recentKnowledges.length === 0}}" class="empty-small">
+      <view class="empty-icon">📝</view>
+      <text>还没有知识点，去录入吧</text>
+    </view>
+    <view wx:else class="recent-list">
+      <view
+        wx:for="{{recentKnowledges}}"
+        wx:key="id"
+        class="recent-item"
+        data-id="{{item.id}}"
+        bindtap="onViewKnowledge"
+      >
+        <view class="recent-info">
+          <view class="recent-title">{{item.title}}</view>
+          <view class="recent-meta">
+            <text class="meta-category">{{item.categoryIcon}} {{item.categoryName}}</text>
+            <view class="mini-progress">
+              <view class="mini-progress-bar">
+                <view class="mini-progress-fill" style="width: {{item.progress * 100 / 6}}%"></view>
+              </view>
+              <text class="mini-progress-text">{{item.progress}}/6</text>
+            </view>
+          </view>
+        </view>
+        <view class="recent-date">{{item.formattedDate}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-links">
+    <view class="link-item" bindtap="onGotoCategories">
+      <text class="link-icon">📂</text>
+      <text class="link-text">分类管理</text>
+      <text class="link-arrow">›</text>
+    </view>
+    <view class="link-item" bindtap="onAbout">
+      <text class="link-icon">ℹ️</text>
+      <text class="link-text">关于</text>
+      <text class="link-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 存储信息 -->
+  <view class="storage-info">
+    <text>存储使用: {{storageUsed}}KB / {{storageLimit}}KB</text>
+  </view>
+</view>

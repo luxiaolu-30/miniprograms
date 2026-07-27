@@ -1,0 +1,269 @@
+/* 顶部统计 */
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24rpx 0;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: all 0.3s;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+  margin-top: 4rpx;
+}
+
+/* 月份导航 */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 0 24rpx;
+  position: relative;
+}
+
+.nav-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: var(--color-primary);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.nav-btn:active {
+  background: var(--color-primary-bg);
+  transform: scale(0.9);
+}
+
+.month-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin: 0 32rpx;
+}
+
+.today-btn {
+  position: absolute;
+  right: 24rpx;
+  font-size: 24rpx;
+  color: var(--color-primary);
+  padding: 8rpx 20rpx;
+  border: 1rpx solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.today-btn:active {
+  background: var(--color-primary-bg);
+}
+
+/* 星期标题 */
+.weekday-header {
+  display: flex;
+  padding: 16rpx 0;
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}
+
+/* 日历网格 */
+.calendar-grid {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.calendar-week {
+  display: flex;
+}
+
+.calendar-day {
+  flex: 1;
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--radius-sm);
+  margin: 2rpx;
+  transition: all 0.15s;
+}
+
+.calendar-day:active {
+  background: var(--color-primary-bg);
+  transform: scale(0.95);
+}
+
+.calendar-day.other-month {
+  opacity: 0.3;
+}
+
+.calendar-day.today {
+  background: var(--color-primary-bg);
+}
+
+.calendar-day.today .day-num {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.calendar-day.selected {
+  background: var(--color-primary);
+  box-shadow: 0 4rpx 12rpx rgba(74, 144, 217, 0.4);
+  transform: scale(1.05);
+}
+
+.calendar-day.selected .day-num {
+  color: #fff;
+  font-weight: 700;
+}
+
+.calendar-day.selected .day-badge {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.calendar-day.has-schedule {
+  position: relative;
+}
+
+.day-num {
+  font-size: 26rpx;
+}
+
+.day-badge {
+  position: absolute;
+  top: 4rpx;
+  right: 4rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6rpx;
+  animation: badgePop 0.3s ease;
+}
+
+@keyframes badgePop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* 选中日期详情 */
+.date-detail {
+  margin-top: 24rpx;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.detail-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.detail-count {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}
+
+.schedule-list {
+  margin-top: 8rpx;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--color-border);
+  transition: background 0.2s;
+}
+
+.schedule-item:active {
+  background: var(--color-bg);
+  margin: 0 -24rpx;
+  padding: 20rpx 24rpx;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-info {
+  flex: 1;
+}
+
+.schedule-title {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.schedule-meta {
+  display: flex;
+  margin-top: 8rpx;
+  gap: 16rpx;
+}
+
+.category-tag {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.review-index {
+  font-size: 22rpx;
+  color: var(--color-primary);
+}
+
+.schedule-arrow {
+  font-size: 36rpx;
+  color: var(--color-text-muted);
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 40rpx 0;
+  color: var(--color-text-muted);
+  font-size: 26rpx;
+}

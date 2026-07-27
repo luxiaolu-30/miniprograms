@@ -1,0 +1,93 @@
+<view class="container">
+  <view class="form">
+    <!-- 标题 -->
+    <view class="form-item">
+      <view class="form-label">标题 <text class="required">*</text></view>
+      <input
+        class="form-input {{titleError ? 'error' : ''}}"
+        placeholder="输入知识点标题（必填）"
+        placeholder-class="input-placeholder"
+        value="{{title}}"
+        bindinput="onTitleInput"
+        maxlength="100"
+        confirm-type="next"
+      />
+    </view>
+
+    <!-- 内容 -->
+    <view class="form-item">
+      <view class="form-label">内容</view>
+      <textarea
+        class="form-textarea"
+        placeholder="输入知识点内容（可选）"
+        value="{{content}}"
+        bindinput="onContentInput"
+        maxlength="2000"
+      />
+    </view>
+
+    <!-- 图片 -->
+    <view class="form-item">
+      <view class="form-label">图片 ({{images.length}}/9)</view>
+      <view class="image-list">
+        <view wx:for="{{images}}" wx:key="*this" class="image-item">
+          <image src="{{item}}" mode="aspectFill" class="image-preview" />
+          <view class="image-delete" data-index="{{index}}" bindtap="onRemoveImage">×</view>
+        </view>
+        <view wx:if="{{images.length < 9}}" class="image-add" bindtap="onChooseImage">
+          <text class="add-icon">+</text>
+          <text class="add-text">添加图片</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 分类 -->
+    <view class="form-item">
+      <view class="form-label">分类（可选）</view>
+      <view class="picker-value" bindtap="onShowCategoryPicker">
+        <text>{{selectedCategoryIcon}} {{selectedCategoryName}}</text>
+        <text class="picker-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 学习日期 -->
+    <view class="form-item">
+      <view class="form-label">学习日期</view>
+      <picker mode="date" value="{{studyDate}}" bindchange="onDateChange">
+        <view class="picker-value">
+          <text>{{studyDate}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="save-bar">
+    <view class="btn-primary save-btn" bindtap="onSave">保存</view>
+  </view>
+</view>
+
+<!-- 分类选择器弹窗 -->
+<view wx:if="{{showCategoryPicker}}" class="picker-mask" bindtap="onHideCategoryPicker">
+  <view class="picker-panel" catchtap="">
+    <view class="picker-title">选择分类</view>
+    <scroll-view scroll-y class="picker-list">
+      <view class="picker-option" data-id="" bindtap="onSelectCategory">
+        <text>📦 未分类</text>
+      </view>
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="picker-option"
+        data-id="{{item.id}}"
+        bindtap="onSelectCategory"
+      >
+        <text>{{item.icon}} {{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 隐藏的 canvas 用于图片压缩 -->
+<canvas type="2d" id="compressCanvas" style="position: fixed; top: -9999rpx; left: -9999rpx;" />

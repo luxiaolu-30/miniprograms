@@ -47,8 +47,8 @@
     "disableSWC": true
   },
   "compileType": "miniprogram",
-  "libVersion": "3.5.0",
-  "appid": "wxb251ee5c5b0a40d0",
+  "libVersion": "3.17.0",
+  "appid": "wxffacec3cd4d46949",
   "projectname": "digital-wardrobe",
   "condition": {},
   "editorSetting": {

@@ -1,0 +1,86 @@
+<view class="container" wx:if="{{knowledge}}">
+  <!-- 标题区 -->
+  <view class="detail-header">
+    <view class="detail-title">{{knowledge.title}}</view>
+    <view class="detail-meta">
+      <text wx:if="{{category}}" class="meta-tag">{{category.icon}} {{category.name}}</text>
+      <text class="meta-date">{{knowledge.studyDate}}</text>
+    </view>
+  </view>
+
+  <!-- 复习进度 -->
+  <view class="progress-card">
+    <view class="progress-header">
+      <text class="progress-title">复习进度</text>
+      <text class="progress-num">{{progress}}/6</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{progress * 100 / 6}}%"></view>
+    </view>
+    <view class="progress-desc">
+      <text wx:if="{{progress === 6}}" class="mastered-text">已掌握 🎉</text>
+      <text wx:else>还剩 {{6 - progress}} 次复习</text>
+    </view>
+  </view>
+
+  <!-- 内容 -->
+  <view wx:if="{{knowledge.content}}" class="detail-content">
+    <view class="section-title">内容</view>
+    <view class="content-text">{{knowledge.content}}</view>
+  </view>
+
+  <!-- 图片 -->
+  <view wx:if="{{knowledge.images.length > 0}}" class="detail-images">
+    <view class="section-title">图片</view>
+    <view class="image-grid">
+      <image
+        wx:for="{{knowledge.images}}"
+        wx:key="*this"
+        src="{{item}}"
+        mode="aspectFill"
+        class="detail-image"
+        data-index="{{index}}"
+        bindtap="onPreviewImage"
+      />
+    </view>
+  </view>
+
+  <!-- 复习记录 -->
+  <view class="review-history">
+    <view class="section-title">复习记录</view>
+    <view class="review-timeline">
+      <view
+        wx:for="{{schedules}}"
+        wx:key="id"
+        class="timeline-item {{item.status === 'done' ? 'done' : 'pending'}}"
+      >
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <view class="timeline-header">
+            <text class="timeline-title">第{{item.reviewIndex}}次复习</text>
+            <text wx:if="{{item.status === 'done'}}" class="timeline-status done">已完成</text>
+            <text wx:elif="{{item.scheduledDate <= today}}" class="timeline-status overdue">待复习</text>
+            <text wx:else class="timeline-status pending">待复习</text>
+          </view>
+          <view class="timeline-date">计划日期: {{item.scheduledDate}}</view>
+          <view wx:if="{{item.completedAt}}" class="timeline-date">
+            完成时间: {{item.completedAt}}
+          </view>
+          <view wx:if="{{item.status === 'pending' && item.scheduledDate <= today}}" class="timeline-action">
+            <view class="btn-complete" data-id="{{item.id}}" bindtap="onCompleteReview">标记完成</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-bar">
+    <view class="btn-secondary action-btn" bindtap="onEdit">编辑</view>
+    <view class="btn-danger action-btn" bindtap="onDelete">删除</view>
+  </view>
+</view>
+
+<view wx:elif="{{loading}}" class="loading">
+  <text>加载中...</text>
+</view>

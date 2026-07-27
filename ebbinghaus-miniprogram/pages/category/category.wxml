@@ -1,0 +1,67 @@
+<view class="container">
+  <view wx:if="{{categories.length === 0}}" class="empty-state">
+    <view class="empty-icon">📂</view>
+    <view class="empty-text">还没有分类</view>
+    <view class="empty-hint">创建一个分类来组织你的知识点</view>
+    <view class="btn-primary" bindtap="onAdd">新建分类</view>
+  </view>
+
+  <view wx:else class="category-list">
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="category-item"
+    >
+      <view class="item-info">
+        <text class="item-icon">{{item.icon}}</text>
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-count">{{item.count}}个知识点</text>
+      </view>
+      <view class="item-actions">
+        <view class="action-icon" data-id="{{item.id}}" bindtap="onEdit">✏️</view>
+        <view class="action-icon" data-id="{{item.id}}" bindtap="onDelete">🗑️</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 悬浮新增按钮 -->
+<view wx:if="{{categories.length > 0}}" class="fab" bindtap="onAdd">+</view>
+
+<!-- 表单弹窗 -->
+<view wx:if="{{showForm}}" class="modal-mask" bindtap="onCloseForm">
+  <view class="modal-panel" catchtap="">
+    <view class="modal-title">{{isEdit ? '编辑分类' : '新建分类'}}</view>
+
+    <view class="form-item">
+      <view class="form-label">名称</view>
+      <input
+        class="form-input"
+        placeholder="输入分类名称"
+        value="{{formName}}"
+        bindinput="onNameInput"
+        maxlength="20"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">图标</view>
+      <view class="icon-grid">
+        <view
+          wx:for="{{iconOptions}}"
+          wx:key="*this"
+          class="icon-option {{formIcon === item ? 'selected' : ''}}"
+          data-icon="{{item}}"
+          bindtap="onSelectIcon"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view class="modal-actions">
+      <view class="btn-secondary modal-btn" bindtap="onCloseForm">取消</view>
+      <view class="btn-primary modal-btn" bindtap="onSave">保存</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,90 @@
+<view class="container">
+  <!-- 顶部统计 -->
+  <view class="stats-bar">
+    <view class="stat-item">
+      <view class="stat-num">{{todayCount}}</view>
+      <view class="stat-label">今日待复习</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{weekCount}}</view>
+      <view class="stat-label">本周待复习</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{totalLearning}}</view>
+      <view class="stat-label">学习中</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{totalMastered}}</view>
+      <view class="stat-label">已掌握</view>
+    </view>
+  </view>
+
+  <!-- 月份导航 -->
+  <view class="calendar-header">
+    <view class="nav-btn" bindtap="onPrevMonth">‹</view>
+    <view class="month-title">{{currentYear}}年{{currentMonth}}月</view>
+    <view class="nav-btn" bindtap="onNextMonth">›</view>
+    <view class="today-btn" bindtap="onGoToday">今天</view>
+  </view>
+
+  <!-- 星期标题 -->
+  <view class="weekday-header">
+    <view class="weekday">日</view>
+    <view class="weekday">一</view>
+    <view class="weekday">二</view>
+    <view class="weekday">三</view>
+    <view class="weekday">四</view>
+    <view class="weekday">五</view>
+    <view class="weekday">六</view>
+  </view>
+
+  <!-- 日历网格 -->
+  <view class="calendar-grid">
+    <view wx:for="{{weeks}}" wx:key="index" class="calendar-week">
+      <view
+        wx:for="{{item}}"
+        wx:for-item="day"
+        wx:for-index="dayIdx"
+        wx:key="dayIdx"
+        class="calendar-day {{day.isCurrentMonth ? '' : 'other-month'}} {{day.isToday ? 'today' : ''}} {{day.count > 0 ? 'has-schedule' : ''}} {{selectedDate === day.date ? 'selected' : ''}}"
+        data-date="{{day.date}}"
+        bindtap="onDateTap"
+      >
+        <view class="day-num">{{day.day}}</view>
+        <view wx:if="{{day.count > 0}}" class="day-badge">{{day.count}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选中日期的复习列表 -->
+  <view wx:if="{{showDateDetail}}" class="date-detail">
+    <view class="detail-header">
+      <view class="detail-title">{{selectedDate}} 待复习</view>
+      <view class="detail-count">{{selectedSchedules.length}} 个知识点</view>
+    </view>
+    <view wx:if="{{selectedSchedules.length === 0}}" class="empty-state">
+      <text>这一天没有复习计划</text>
+    </view>
+    <view wx:else class="schedule-list">
+      <view
+        wx:for="{{selectedSchedules}}"
+        wx:key="id"
+        class="schedule-item"
+        data-knowledgeid="{{item.knowledgePointId}}"
+        bindtap="onScheduleTap"
+      >
+        <view class="schedule-info">
+          <view class="schedule-title">{{item.knowledgeTitle}}</view>
+          <view class="schedule-meta">
+            <text class="category-tag">{{item.categoryIcon}} {{item.categoryName}}</text>
+            <text class="review-index">第{{item.reviewIndex}}次复习</text>
+          </view>
+        </view>
+        <view class="schedule-arrow">›</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 悬浮新增按钮 -->
+<view class="fab" bindtap="onAddKnowledge">+</view>

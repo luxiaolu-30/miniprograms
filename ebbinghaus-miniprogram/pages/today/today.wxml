@@ -1,0 +1,54 @@
+<view class="container">
+  <!-- 今日统计 -->
+  <view class="today-stats">
+    <view class="stats-title">今日复习</view>
+    <view class="stats-desc">
+      <text wx:if="{{schedules.length > 0}}">待复习 {{schedules.length}} 个 · 已完成 {{completedCount}} 个</text>
+      <text wx:else>今日复习全部完成 🎉</text>
+    </view>
+  </view>
+
+  <!-- 复习列表 -->
+  <view wx:if="{{loading}}" class="loading">
+    <view class="loading-spinner"></view>
+    <text>加载中...</text>
+  </view>
+
+  <view wx:elif="{{schedules.length === 0}}" class="empty-state">
+    <view class="empty-icon">🎉</view>
+    <view class="empty-text">今天没有复习计划</view>
+    <view class="empty-hint">休息一下吧，或者录入新知识点</view>
+    <view class="btn-primary empty-btn" bindtap="onAddKnowledge">录入知识点</view>
+  </view>
+
+  <view wx:else class="review-list">
+    <view
+      wx:for="{{schedules}}"
+      wx:key="id"
+      class="review-card {{animatingId === item.id ? 'completing' : ''}}"
+    >
+      <view class="card-main" data-knowledgeid="{{item.knowledgePointId}}" bindtap="onCardTap">
+        <view class="card-header">
+          <view class="card-title">{{item.knowledgeTitle}}</view>
+          <view wx:if="{{item.isOverdue}}" class="overdue-tag">逾期{{item.overdueDays}}天</view>
+        </view>
+        <view class="card-meta">
+          <text class="meta-tag">{{item.categoryIcon}} {{item.categoryName}}</text>
+          <text class="meta-index">第{{item.reviewIndex}}次复习</text>
+        </view>
+        <view wx:if="{{item.knowledge && item.knowledge.content}}" class="card-content text-ellipsis-2">
+          {{item.knowledge.content}}
+        </view>
+      </view>
+      <view class="card-action">
+        <view class="complete-btn {{animatingId === item.id ? 'btn-animating' : ''}}" data-id="{{item.id}}" bindtap="onComplete">
+          <text wx:if="{{animatingId !== item.id}}">完成</text>
+          <text wx:else class="btn-done">✓</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 悬浮新增按钮 -->
+<view class="fab" bindtap="onAddKnowledge">+</view>

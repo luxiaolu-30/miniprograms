@@ -1,0 +1,17 @@
+<view class="image-loader">
+  <image
+    wx:if="{{src && !error}}"
+    src="{{src}}"
+    mode="{{mode}}"
+    lazy-load="{{lazyLoad}}"
+    bindload="onLoad"
+    binderror="onError"
+    class="loader-image {{loaded ? 'loaded' : ''}}"
+  />
+  <view wx:if="{{!loaded && !error}}" class="loader-placeholder">
+    <view class="loader-spinner"></view>
+  </view>
+  <view wx:if="{{error}}" class="loader-error">
+    <text>⚠️</text>
+  </view>
+</view>

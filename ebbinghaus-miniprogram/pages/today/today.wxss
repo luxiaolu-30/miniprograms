@@ -1,0 +1,174 @@
+/* 今日统计 */
+.today-stats {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.stats-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.stats-desc {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-top: 8rpx;
+}
+
+/* 复习列表 */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.review-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.review-card.completing {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.card-main {
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+.overdue-tag {
+  font-size: 20rpx;
+  color: var(--color-danger);
+  background: #FDECEA;
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-sm);
+  margin-left: 12rpx;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.card-meta {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}
+
+.meta-tag {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.meta-index {
+  font-size: 22rpx;
+  color: var(--color-primary);
+}
+
+.card-content {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-top: 12rpx;
+  line-height: 1.4;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+}
+
+.complete-btn {
+  background: var(--color-success);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.complete-btn.btn-animating {
+  background: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.btn-done {
+  font-weight: 700;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 80rpx 0;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.empty-hint {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-bottom: 32rpx;
+}
+
+.empty-btn {
+  display: inline-block;
+}
+
+/* 加载 */
+.loading {
+  text-align: center;
+  padding: 80rpx 0;
+  color: var(--color-text-muted);
+}
+
+.loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
