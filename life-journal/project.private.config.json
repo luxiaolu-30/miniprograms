@@ -1,0 +1,8 @@
+{
+  "description": "项目私有配置文件",
+  "projectname": "life-journal",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  }
+}

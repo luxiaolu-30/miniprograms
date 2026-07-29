@@ -1,0 +1,50 @@
+<view class="reflection-card">
+  <!-- 回顾次数标记 -->
+  <view class="review-badge">第 {{reviewIndex}} 次回顾</view>
+
+  <!-- 原始内容对比区 -->
+  <view wx:if="{{originalContent}}" class="original-section">
+    <text class="section-label">📝 当时你写道：</text>
+    <view class="original-box">
+      <text class="original-text">{{originalContent}}</text>
+    </view>
+  </view>
+
+  <!-- 引导问题 -->
+  <view class="prompt-section">
+    <text class="prompt-text">{{prompt}}</text>
+  </view>
+
+  <!-- 回顾输入框 -->
+  <textarea
+    class="reflection-input"
+    placeholder="写下你现在的想法..."
+    value="{{reflection}}"
+    bindinput="onReflectionInput"
+    maxlength="500"
+    auto-height
+  />
+
+  <!-- 认同度评分 -->
+  <view class="rating-section">
+    <text class="rating-label">你现在有多认同当时的想法？</text>
+    <view class="rating-options">
+      <view
+        wx:for="{{[1,2,3,4,5]}}"
+        wx:key="*this"
+        class="rating-item {{rating == item ? 'rating-active' : ''}}"
+        data-rating="{{item}}"
+        bindtap="onSelectRating"
+      >
+        <text class="rating-num">{{item}}</text>
+        <text class="rating-desc">{{ratingLabels[item]}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions">
+    <view class="btn-skip" bindtap="onSkip">跳过</view>
+    <view class="btn-submit" bindtap="onSubmit">完成回顾</view>
+  </view>
+</view>

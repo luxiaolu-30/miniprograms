@@ -1,0 +1,79 @@
+<view class="container">
+  <!-- 顶部卡片：连续打卡 + 日记数 -->
+  <view class="hero-card card">
+    <view class="hero-top">
+      <streak-flame streak="{{streak}}" />
+      <view class="hero-count">
+        <text class="count-num">{{totalEntries}}</text>
+        <text class="count-label">篇日记</text>
+      </view>
+    </view>
+    <view class="hero-sub">
+      <text wx:if="{{firstEntryDate}}">从 {{firstEntryDate}} 开始，已记录 {{daysSinceFirst}} 天</text>
+      <text wx:else>开始你的第一篇日记吧</text>
+    </view>
+  </view>
+
+  <!-- 回顾统计 -->
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-num">{{completedReflections}}</text>
+      <text class="stat-label">已完成回顾</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{completionRate}}%</text>
+      <text class="stat-label">完成率</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{totalWords}}</text>
+      <text class="stat-label">累计字数</text>
+    </view>
+  </view>
+
+  <!-- 类型分布 -->
+  <view wx:if="{{typeDistribution.length > 0}}" class="section card">
+    <text class="section-title">📊 记录类型分布</text>
+    <view class="dist-list">
+      <view wx:for="{{typeDistribution}}" wx:key="key" class="dist-item">
+        <view class="dist-label">
+          <text>{{item.icon}}</text>
+          <text>{{item.label}}</text>
+        </view>
+        <view class="dist-bar-bg">
+          <view class="dist-bar" style="width: {{item.count * 100 / totalEntries}}%; background: {{item.color}}"></view>
+        </view>
+        <text class="dist-count">{{item.count}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 心情分布 -->
+  <view wx:if="{{totalEntries > 0}}" class="section card">
+    <text class="section-title">😊 心情分布</text>
+    <view class="mood-chart">
+      <view wx:for="{{moodDistribution}}" wx:key="value" class="mood-bar-item">
+        <view class="mood-bar-col">
+          <view
+            class="mood-bar"
+            style="height: {{totalEntries > 0 ? item.count * 200 / totalEntries : 0}}rpx"
+          ></view>
+        </view>
+        <text class="mood-emoji-sm">{{item.emoji}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 存储信息 -->
+  <view class="section card">
+    <text class="section-title">💾 存储使用</text>
+    <view class="storage-info">
+      <text class="storage-text">已使用 {{storageUsed}}</text>
+      <text class="storage-hint">纯本地存储，数据完全属于你</text>
+    </view>
+  </view>
+
+  <!-- 操作 -->
+  <view class="actions-section">
+    <view class="btn-primary btn-block" bindtap="onGoAdd">写新日记</view>
+  </view>
+</view>

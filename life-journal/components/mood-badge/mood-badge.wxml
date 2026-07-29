@@ -1,0 +1,4 @@
+<view class="mood-badge">
+  <text class="mood-emoji">{{emoji}}</text>
+  <text wx:if="{{showLabel}}" class="mood-label">{{label}}</text>
+</view>

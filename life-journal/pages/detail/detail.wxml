@@ -1,0 +1,98 @@
+<view wx:if="{{entry}}" class="container fade-in">
+  <!-- 条目头部 -->
+  <view class="entry-header card">
+    <view class="header-top">
+      <view class="type-badge-lg" style="background: {{typeConfig.color}}20; color: {{typeConfig.color}}">
+        {{typeConfig.icon}} {{typeConfig.label}}
+      </view>
+      <text class="internalized-badge" wx:if="{{isInternalized}}">✨ 已内化</text>
+    </view>
+    <text class="entry-title-text">{{entry.title}}</text>
+    <view class="entry-meta">
+      <text class="meta-date">{{relativeDate}}</text>
+      <mood-badge mood="{{entry.mood}}" showLabel="{{true}}" />
+    </view>
+    <!-- 标签 -->
+    <view wx:if="{{entry.tags.length > 0}}" class="entry-tags">
+      <view wx:for="{{entry.tags}}" wx:key="*this" class="tag">#{{item}}</view>
+    </view>
+  </view>
+
+  <!-- Tab 切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{activeTab == 'content' ? 'tab-active' : ''}}" data-tab="content" bindtap="onSwitchTab">
+      原始记录
+    </view>
+    <view class="tab-item {{activeTab == 'reflections' ? 'tab-active' : ''}}" data-tab="reflections" bindtap="onSwitchTab">
+      回顾历程 ({{progress}}/6)
+    </view>
+  </view>
+
+  <!-- 原始内容 -->
+  <view wx:if="{{activeTab == 'content'}}" class="tab-content">
+    <view class="content-card card">
+      <text class="content-text">{{entry.content}}</text>
+    </view>
+  </view>
+
+  <!-- 回顾历程 -->
+  <view wx:if="{{activeTab == 'reflections'}}" class="tab-content">
+    <!-- 进度条 -->
+    <view class="progress-bar card">
+      <view class="progress-header">
+        <text class="progress-label">回顾进度</text>
+        <text class="progress-count">{{progress}} / 6</text>
+      </view>
+      <view class="progress-track">
+        <view class="progress-fill" style="width: {{progress * 100 / 6}}%"></view>
+      </view>
+      <view class="progress-dots-row">
+        <view
+          wx:for="{{[1,2,3,4,5,6]}}"
+          wx:key="*this"
+          class="progress-dot {{item <= progress ? 'dot-done' : ''}}"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 回顾时间线 -->
+    <view class="reflection-timeline">
+      <view
+        wx:for="{{reflections}}"
+        wx:key="id"
+        class="timeline-item card"
+      >
+        <view class="timeline-header">
+          <text class="timeline-index">第 {{item.reviewIndex}} 次</text>
+          <text class="timeline-status status-{{item.status}}">
+            {{item.status == 'done' ? '✓ 已完成' : (item.status == 'skipped' ? '跳过' : '待回顾')}}
+          </text>
+        </view>
+
+        <!-- 引导问题 -->
+        <text class="timeline-prompt">{{item.prompt}}</text>
+
+        <!-- 回顾内容（已完成时展示） -->
+        <view wx:if="{{item.status == 'done'}}" class="timeline-reflection">
+          <text class="reflection-text">{{item.reflection}}</text>
+          <view class="reflection-meta">
+            <text class="rating-stars">
+              {{item.rating}}分 -
+              {{item.rating == 1 ? '完全不认同' : (item.rating == 2 ? '有些变化' : (item.rating == 3 ? '基本成立' : (item.rating == 4 ? '很有感触' : '已成信念')))}}
+            </text>
+          </view>
+        </view>
+
+        <!-- 计划日期 -->
+        <text class="timeline-date">计划：{{item.scheduledDate}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions-bottom">
+    <view class="btn-delete" bindtap="onDelete">删除</view>
+  </view>
+</view>

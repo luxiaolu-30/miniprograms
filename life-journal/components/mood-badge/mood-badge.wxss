@@ -1,0 +1,14 @@
+.mood-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.mood-emoji {
+  font-size: 32rpx;
+}
+
+.mood-label {
+  font-size: 24rpx;
+  color: #7A6655;
+}

@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/calendar/calendar",
+    "pages/timeline/timeline",
+    "pages/add/add",
+    "pages/detail/detail",
+    "pages/stats/stats"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "人生日记",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F0EB"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#6B4226",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/timeline/timeline",
+        "text": "时间轴"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

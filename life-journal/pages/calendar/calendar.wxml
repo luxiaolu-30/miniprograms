@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- 月份导航 -->
+  <view class="month-nav">
+    <view class="nav-btn" bindtap="onPrevMonth">‹</view>
+    <text class="month-label">{{monthLabel}}</text>
+    <view class="nav-btn" bindtap="onNextMonth">›</view>
+  </view>
+
+  <!-- 星期标题 -->
+  <view class="week-header">
+    <view wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this" class="weekday">
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 日历格子 -->
+  <view class="calendar-grid">
+    <view
+      wx:for="{{calendarDays}}"
+      wx:key="date"
+      class="cal-day {{item.hasData ? 'has-data' : ''}} {{item.isToday ? 'is-today' : ''}} {{selectedDate == item.date ? 'is-selected' : ''}}"
+      data-date="{{item.date}}"
+      bindtap="onSelectDate"
+    >
+      <text class="day-num">{{item.day}}</text>
+      <view wx:if="{{item.count > 0}}" class="count-badge">{{item.count}}</view>
+    </view>
+  </view>
+
+  <!-- 选中日期的回顾列表 -->
+  <view wx:if="{{selectedDate}}" class="selected-section">
+    <text class="section-title">{{selectedDate}} 的回顾</text>
+    <view wx:if="{{selectedReflections.length === 0}}" class="no-data">
+      这一天没有待回顾的内容
+    </view>
+    <view
+      wx:for="{{selectedReflections}}"
+      wx:key="id"
+      class="reflection-brief"
+      data-id="{{item.entryId}}"
+      bindtap="onReflectionTap"
+    >
+      <text class="brief-index">第{{item.reviewIndex}}次</text>
+      <text class="brief-title">{{item.entryTitle}}</text>
+    </view>
+  </view>
+</view>

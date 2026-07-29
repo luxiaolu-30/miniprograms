@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "时间轴",
+  "usingComponents": {
+    "entry-card": "/components/entry-card/entry-card",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

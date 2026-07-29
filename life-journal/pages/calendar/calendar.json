@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "回顾日历",
+  "usingComponents": {
+    "entry-card": "/components/entry-card/entry-card"
+  }
+}

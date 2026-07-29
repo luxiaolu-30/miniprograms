@@ -1,0 +1,33 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 40rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-title {
+  font-size: 30rpx;
+  color: #2C1810;
+  font-weight: 500;
+  margin-bottom: 12rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #B8A89A;
+  margin-bottom: 40rpx;
+}
+
+.empty-btn {
+  padding: 20rpx 48rpx;
+  background: #6B4226;
+  color: #FFFFFF;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}

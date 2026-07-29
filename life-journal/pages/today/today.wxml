@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 顶部统计栏 -->
+  <view class="header">
+    <view class="header-left">
+      <text class="greeting">{{allDone ? '今日回顾已完成 🎉' : '今天回顾什么？'}}</text>
+      <text class="date-sub">{{stats.remaining}} 项待回顾</text>
+    </view>
+    <streak-flame streak="{{streak}}" />
+  </view>
+
+  <!-- 全部完成状态 -->
+  <view wx:if="{{allDone}}" class="done-section fade-in">
+    <view class="done-card">
+      <text class="done-emoji">🌟</text>
+      <text class="done-title">今日回顾全部完成</text>
+      <text class="done-hint">坚持反思，让成长有迹可循</text>
+      <view class="done-actions">
+        <view class="btn-ghost" bindtap="onGoTimeline">查看时间轴</view>
+        <view class="btn-primary" bindtap="onGoAdd">写新日记</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回顾列表 -->
+  <view wx:elif="{{!isRefecting}}" class="reflection-list">
+    <view
+      wx:for="{{todayReflections}}"
+      wx:key="id"
+      class="reflection-item card fade-in"
+      data-index="{{index}}"
+      bindtap="onStartReflection"
+    >
+      <!-- 逾期标记 -->
+      <view wx:if="{{item.isOverdue}}" class="overdue-badge">
+        逾期 {{item.overdueDays}} 天
+      </view>
+
+      <!-- 回顾信息 -->
+      <view class="reflection-info">
+        <text class="review-index">第 {{item.reviewIndex}} 次回顾</text>
+        <text class="reflection-title">{{item.entryTitle}}</text>
+        <text class="reflection-prompt">{{item.prompt}}</text>
+      </view>
+
+      <!-- 开始按钮 -->
+      <view class="start-btn">开始回顾 →</view>
+    </view>
+  </view>
+
+  <!-- 回顾进行中 -->
+  <view wx:elif="{{isRefecting && currentReflection}}" class="reflecting-section fade-in">
+    <reflection-prompt
+      prompt="{{currentReflection.prompt}}"
+      reviewIndex="{{currentReflection.reviewIndex}}"
+      originalContent="{{currentEntry.content}}"
+      bind:submit="onSubmitReflection"
+      bind:skip="onSkipReflection"
+    />
+  </view>
+</view>

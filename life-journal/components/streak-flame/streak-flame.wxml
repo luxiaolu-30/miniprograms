@@ -1,0 +1,5 @@
+<view class="streak-container flame-{{flameSize}}">
+  <text class="flame-icon">🔥</text>
+  <text class="streak-num">{{streak}}</text>
+  <text wx:if="{{showLabel}}" class="streak-label">天连续</text>
+</view>

@@ -1,0 +1,142 @@
+.reflection-card {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.review-badge {
+  display: inline-block;
+  padding: 4rpx 20rpx;
+  border-radius: 20rpx;
+  background: #6B4226;
+  color: #FFFFFF;
+  font-size: 22rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 原始内容对比 */
+.original-section {
+  margin-bottom: 32rpx;
+}
+
+.section-label {
+  font-size: 24rpx;
+  color: #7A6655;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.original-box {
+  background: #FAF5EE;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  border-left: 4rpx solid #D4C5B5;
+}
+
+.original-text {
+  font-size: 26rpx;
+  color: #7A6655;
+  line-height: 1.6;
+}
+
+/* 引导问题 */
+.prompt-section {
+  margin-bottom: 24rpx;
+}
+
+.prompt-text {
+  font-size: 30rpx;
+  color: #2C1810;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* 输入框 */
+.reflection-input {
+  width: 100%;
+  min-height: 160rpx;
+  background: #FAF5EE;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #2C1810;
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+}
+
+/* 认同度评分 */
+.rating-section {
+  margin-bottom: 32rpx;
+}
+
+.rating-label {
+  font-size: 26rpx;
+  color: #7A6655;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.rating-options {
+  display: flex;
+  gap: 12rpx;
+}
+
+.rating-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 8rpx;
+  border-radius: 12rpx;
+  background: #FAF5EE;
+  border: 2rpx solid transparent;
+}
+
+.rating-active {
+  background: #6B422620;
+  border-color: #6B4226;
+}
+
+.rating-num {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C1810;
+}
+
+.rating-desc {
+  font-size: 18rpx;
+  color: #B8A89A;
+  text-align: center;
+  margin-top: 4rpx;
+}
+
+/* 操作按钮 */
+.actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-skip {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #7A6655;
+  background: #F5F0EB;
+}
+
+.btn-submit {
+  flex: 2;
+  text-align: center;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  background: #6B4226;
+}
+
+.btn-submit:active {
+  background: #8B5E3C;
+}

@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索标题、内容、标签..."
+      value="{{searchKeyword}}"
+      bindinput="onSearchInput"
+      confirm-type="search"
+    />
+    <view wx:if="{{searchKeyword}}" class="search-clear" bindtap="onClearSearch">×</view>
+  </view>
+
+  <!-- 类型筛选 -->
+  <scroll-view class="filter-scroll" scroll-x="true" enhanced="true">
+    <view class="filter-row">
+      <view
+        class="filter-chip {{selectedFilter == 'all' ? 'filter-active' : ''}}"
+        data-type="all"
+        bindtap="onSelectFilter"
+      >
+        全部 ({{entries.length}})
+      </view>
+      <view
+        wx:for="{{entryTypes}}"
+        wx:key="key"
+        class="filter-chip {{selectedFilter == item.key ? 'filter-active' : ''}}"
+        data-type="{{item.key}}"
+        bindtap="onSelectFilter"
+      >
+        {{item.icon}} {{item.label}} ({{typeStats[item.key] || 0}})
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 条目列表 -->
+  <view wx:if="{{filteredEntries.length > 0}}" class="timeline-list">
+    <entry-card
+      wx:for="{{filteredEntries}}"
+      wx:key="id"
+      entry="{{item}}"
+      bind:tap="onEntryTap"
+    />
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:elif="{{entries.length === 0}}"
+    icon="📝"
+    title="还没有日记"
+    hint="写下第一篇，开启自我反思之旅"
+    actionText="开始记录"
+    bind:action="onGoAdd"
+  />
+
+  <!-- 搜索无结果 -->
+  <empty-state
+    wx:else
+    icon="🔍"
+    title="没有找到匹配的内容"
+    hint="换个关键词试试"
+  />
+</view>

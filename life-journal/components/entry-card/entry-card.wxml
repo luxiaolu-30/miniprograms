@@ -1,0 +1,31 @@
+<view class="entry-card" bindtap="onTap">
+  <!-- 头部：类型图标 + 标题 + 日期 -->
+  <view class="card-header">
+    <view class="type-badge" style="background: {{typeConfig.color}}20; color: {{typeConfig.color}}">
+      <text class="type-icon">{{typeConfig.icon}}</text>
+      <text class="type-label">{{typeConfig.label}}</text>
+    </view>
+    <text class="card-date">{{relativeDate}}</text>
+  </view>
+
+  <!-- 标题 -->
+  <text class="card-title">{{entry.title}}</text>
+
+  <!-- 内容摘要 -->
+  <text class="card-content">{{entry.content}}</text>
+
+  <!-- 底部：心情 + 回顾进度 -->
+  <view class="card-footer">
+    <text class="mood">{{moodEmoji}}</text>
+    <view wx:if="{{showReflection && totalReflections > 0}}" class="progress-mini">
+      <view class="progress-dots">
+        <view
+          wx:for="{{[1,2,3,4,5,6]}}"
+          wx:key="*this"
+          class="dot {{item <= progress ? 'dot-done' : ''}}"
+        />
+      </view>
+      <text class="progress-text">{{progress}}/6</text>
+    </view>
+  </view>
+</view>

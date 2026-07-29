@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "今日回顾",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "entry-card": "/components/entry-card/entry-card",
+    "reflection-prompt": "/components/reflection-prompt/reflection-prompt",
+    "empty-state": "/components/empty-state/empty-state",
+    "streak-flame": "/components/streak-flame/streak-flame"
+  }
+}

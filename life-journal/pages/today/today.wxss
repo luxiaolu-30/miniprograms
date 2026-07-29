@@ -1,0 +1,125 @@
+/* 顶部 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #2C1810;
+}
+
+.date-sub {
+  font-size: 24rpx;
+  color: #B8A89A;
+  margin-top: 4rpx;
+}
+
+/* 全部完成 */
+.done-section {
+  display: flex;
+  justify-content: center;
+  padding: 80rpx 0;
+}
+
+.done-card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 60rpx 40rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 20rpx rgba(107, 66, 38, 0.08);
+}
+
+.done-emoji {
+  font-size: 80rpx;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.done-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2C1810;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.done-hint {
+  font-size: 26rpx;
+  color: #B8A89A;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+.done-actions {
+  display: flex;
+  gap: 20rpx;
+  justify-content: center;
+}
+
+/* 回顾列表 */
+.reflection-item {
+  position: relative;
+}
+
+.overdue-badge {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+  background: #FFF2F0;
+  color: #E74C3C;
+  font-size: 20rpx;
+}
+
+.reflection-info {
+  margin-bottom: 20rpx;
+}
+
+.review-index {
+  font-size: 22rpx;
+  color: #6B4226;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.reflection-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C1810;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.reflection-prompt {
+  font-size: 24rpx;
+  color: #7A6655;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.start-btn {
+  text-align: center;
+  padding: 16rpx;
+  background: #FAF5EE;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  color: #6B4226;
+}
+
+.reflection-item:active .start-btn {
+  background: #6B4226;
+  color: #FFFFFF;
+}

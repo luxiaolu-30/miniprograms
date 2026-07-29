@@ -1,0 +1,167 @@
+/* ============================================================================
+ * 全局样式 - app.wxss
+ * 人生间隔重复日记 - 温暖知性风格
+ * 主色调：温暖棕色系，米色背景
+ * ============================================================================ */
+
+page {
+  --primary: #6B4226;          /* 主色：温暖棕 */
+  --primary-light: #8B5E3C;    /* 浅主色 */
+  --primary-bg: #FAF5EE;       /* 主背景：米黄 */
+  --bg: #F5F0EB;               /* 页面背景 */
+  --card: #FFFFFF;             /* 卡片背景 */
+  --text: #2C1810;             /* 主文字 */
+  --text-secondary: #7A6655;   /* 次要文字 */
+  --text-light: #B8A89A;       /* 浅色文字 */
+  --border: #E8E0D8;           /* 边框 */
+  --success: #52C41A;          /* 成功绿 */
+  --warning: #FAAD14;          /* 警告橙 */
+  --danger: #E74C3C;           /* 危险红 */
+  --info: #1890FF;             /* 信息蓝 */
+
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* ==================== 通用布局 ==================== */
+
+.container {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(107, 66, 38, 0.06);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap-s { gap: 8rpx; }
+.gap-m { gap: 16rpx; }
+.gap-l { gap: 24rpx; }
+
+/* ==================== 文字 ==================== */
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.label {
+  font-size: 24rpx;
+  color: var(--text-light);
+}
+
+/* ==================== 按钮 ==================== */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  background: var(--primary-light);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+}
+
+.btn-large {
+  padding: 28rpx 48rpx;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==================== 标签 ==================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+
+/* ==================== 分割线 ==================== */
+
+.divider {
+  height: 1rpx;
+  background: var(--border);
+  margin: 24rpx 0;
+}
+
+/* ==================== 动画 ==================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+/* ==================== 图标占位 ==================== */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
