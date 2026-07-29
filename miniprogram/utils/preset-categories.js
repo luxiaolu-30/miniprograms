@@ -1,21 +1,42 @@
 /**
- * 预设品类定义
- * 首次启动时自动创建
+ * ============================================================================
+ * 预设品类定义 - 小程序首次启动时自动创建
+ * ============================================================================
+ *
+ * 【品类字段模板说明】
+ *   每个品类含 fields 数组，定义该品类下物品的动态字段：
+ *   - key        : 字段标识（唯一，用于 item.fields[key] 存取）
+ *   - label      : 字段显示名称（表单标签）
+ *   - type       : 字段类型（text | number | select | date）
+ *   - options    : select 类型的选项列表
+ *   - required   : 是否必填
+ *   - sortOrder  : 字段排序权重（升序展示）
+ *
+ * 【预设品类】
+ *   - cat_clothing  : 衣物（颜色/尺码/材质/季节/品牌/风格）
+ *   - cat_book      : 书籍（作者/出版社/ISBN/页数/读完日期/评分）
+ *   - cat_digital   : 数码藏品（品牌/型号/购买价格/序列号/保修期）
+ *   - cat_souvenir  : 纪念品（来源/纪念事件/相关人物/情感价值）
+ *
+ * 【导出】
+ *   presetCategories : Category[] 数组
  */
 
-function generateId() {
-  return 'cat_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 6);
-}
-
+// 统一创建时间（模块加载时固定，保证同一批次品类时间一致）
 const now = new Date().toISOString();
 
+/**
+ * 预设品类数组
+ * 这些品类为系统内置（isBuiltIn: true），不可被用户删除
+ */
 const presetCategories = [
   {
+    // 衣物品类 - 管理服装类物品
     id: 'cat_clothing',
     name: '衣物',
     icon: '👕',
-    isBuiltIn: true,
-    sortOrder: 0,
+    isBuiltIn: true,   // 系统内置，不可删除
+    sortOrder: 0,      // 排序权重，越小越靠前
     createdAt: now,
     fields: [
       { key: 'color', label: '颜色', type: 'text', required: false, sortOrder: 0 },
@@ -27,6 +48,7 @@ const presetCategories = [
     ],
   },
   {
+    // 书籍品类 - 管理个人藏书
     id: 'cat_book',
     name: '书籍',
     icon: '📚',
@@ -43,6 +65,7 @@ const presetCategories = [
     ],
   },
   {
+    // 数码藏品品类 - 管理电子设备、数码产品
     id: 'cat_digital',
     name: '数码藏品',
     icon: '📱',
@@ -58,6 +81,7 @@ const presetCategories = [
     ],
   },
   {
+    // 纪念品类 - 管理有纪念意义的物品
     id: 'cat_souvenir',
     name: '纪念品',
     icon: '🎁',

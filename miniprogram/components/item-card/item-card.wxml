@@ -1,10 +1,11 @@
 <!-- 网格视图 -->
 <view wx:if="{{viewMode === 'grid'}}" class="card-grid" bindtap="onTap">
   <view class="card-image-wrap">
+    <!-- 🔧 修复：使用 coverImage（imagePath 优先，fallback 到 item.images[0]） -->
     <image
-      wx:if="{{imagePath}}"
+      wx:if="{{coverImage}}"
       class="card-image"
-      src="{{imagePath}}"
+      src="{{coverImage}}"
       mode="aspectFill"
       lazy-load
     />
@@ -23,10 +24,11 @@
 <!-- 列表视图 -->
 <view wx:else class="card-list" bindtap="onTap">
   <view class="card-image-wrap list">
+    <!-- 🔧 修复：使用 coverImage（imagePath 优先，fallback 到 item.images[0]） -->
     <image
-      wx:if="{{imagePath}}"
+      wx:if="{{coverImage}}"
       class="card-image"
-      src="{{imagePath}}"
+      src="{{coverImage}}"
       mode="aspectFill"
       lazy-load
     />

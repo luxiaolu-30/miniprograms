@@ -9,6 +9,8 @@
     >
       <text class="chip-icon">{{item.icon}}</text>
       <text class="chip-name">{{item.name}}</text>
+      <!-- 🔧 修复：显示分类数量（由父组件 counts 属性传入） -->
+      <text wx:if="{{item.count !== null && item.count !== undefined}}" class="chip-count">{{item.count}}</text>
     </view>
   </view>
 </scroll-view>
