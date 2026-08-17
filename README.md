@@ -17,7 +17,7 @@
 
 ```
 电子衣橱/
-├── miniprogram/                # 小程序源码
+├── digital-wardrobe/           # 小程序源码
 │   ├── app.js                  # 全局逻辑
 │   ├── app.json                # 路由和窗口配置
 │   ├── app.wxss                # 全局样式
