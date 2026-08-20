@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我把背不下来的东西，全部交给了一份「遗忘曲线」</title>
+<style>
+  body{margin:0;background:#eef3f9;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+  .bar{position:sticky;top:0;background:#143a5e;color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .bar .t{font-size:13px;opacity:.6;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar button{background:#4A90D9;color:#fff;border:none;border-radius:999px;padding:8px 16px;font-size:13px;cursor:pointer;white-space:nowrap}
+  .bar button:active{transform:scale(.97)}
+  .sheet{max-width:680px;margin:0 auto;background:#fbfdfe;padding:34px 22px 60px;min-height:80vh}
+  .tip{font-size:12px;color:#8fa6bb;text-align:center;margin:0 0 26px}
+  #article{max-width:660px;margin:0 auto}
+  #article svg{max-width:100%;height:auto;border-radius:12px}
+  .toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:#143a5e;color:#eaf3fc;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="bar"><span class="t">预览 · 艾宾浩斯助记推文</span><button onclick="copyArticle()">一键复制</button></div>
+<div class="sheet">
+  <p class="tip">点右上角「一键复制」后，粘贴到 mp.weixin.qq.com 图文编辑器即可。封面与正文图在 assets/ 下，需自行上传。SVG 数据图复制后需在后台以截图方式上传。</p>
+  <div id="article">
+
+<p style="font-size:15px;line-height:1.9;color:#5e7a93;margin:26px 0 10px;text-align:center;letter-spacing:1px;">数字生命笔记 · 第 02 篇</p>
+<p style="font-size:26px;line-height:1.4;color:#14375a;font-weight:bold;text-align:center;margin:8px 0 20px;letter-spacing:1px;">我把背不下来的东西，全部交给了一份「遗忘曲线」</p>
+<p style="font-size:15px;line-height:1.9;color:#7c94ab;text-align:center;margin:0 0 34px;">记忆最划算的用法，是掐着遗忘的时间点去复习。</p>
+
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+我也算是个要背东西的人。背单词，背概念，背一些考试前临时抱佛脚的考点。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+背完一遍，大脑很诚实。三天后就还给我了。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+我一直以为是自己笨。<strong style="color:#4A90D9;font-weight:600;">后来才知道，是我复习的时机，全错了。</strong>
+</p>
+
+<p style="text-align:center;font-size:52px;font-weight:900;color:#1a1a1a;letter-spacing:3px;line-height:1;margin:56px 0 0;">01</p>
+<p style="text-align:center;font-size:21px;font-weight:bold;color:#4A90D9;margin:10px 0 28px;">忘，其实是有规律的</p>
+
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+十九世纪一个叫<a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E5%AE%BE%E6%B5%A9%E6%96%AF%E9%81%97%E5%BF%98%E6%9B%B2%E7%BA%BF" style="color:#4A90D9;text-decoration:none;border-bottom:1px solid #4A90D9;">艾宾浩斯</a>的人，拿自己做实验，画出一条遗忘曲线。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+结论很朴素<strong style="color:#22303f;font-weight:600;">刚学完忘得最快，而且遗忘的速度，是有节奏的。</strong>
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+这不难懂。难的是把它用进日常。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+因为该复习的时间点，是隔得越来越开的。第 1 天、第 3 天、第 7 天、第 14 天、第 29 天、第 59 天。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+隔着这么远的日程，靠人脑去记 "今天就该复习那个单词了" <strong style="color:#4A90D9;font-weight:600;">根本不靠谱。</strong>所以我把这件操心的事，交给了机器。
+</p>
+
+<p style="font-size:15px;color:#4A90D9;font-weight:600;text-align:center;margin:36px 0 6px;">学习日期 + 六次复习档位</p>
+<svg viewBox="0 0 720 176" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="复习计划时间轴" style="display:block;margin:0 auto;background:#f0f6fc;">
+  <defs>
+    <marker id="ba" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#4A90D9"/></marker>
+  </defs>
+  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="12" y="70" width="96" height="56" rx="12" fill="#eaf3fc" stroke="#4A90D9"/>
+    <rect x="128" y="70" width="96" height="56" rx="12" fill="#f6fafe" stroke="#9fc2e8"/>
+    <rect x="244" y="70" width="96" height="56" rx="12" fill="#f6fafe" stroke="#9fc2e8"/>
+    <rect x="360" y="70" width="96" height="56" rx="12" fill="#f6fafe" stroke="#9fc2e8"/>
+    <rect x="476" y="70" width="96" height="56" rx="12" fill="#f6fafe" stroke="#9fc2e8"/>
+    <rect x="592" y="70" width="96" height="56" rx="12" fill="#e6f4e9" stroke="#52c41a"/>
+    <path d="M110 98 H124" stroke="#4A90D9" stroke-width="1.8" fill="none" marker-end="url(#ba)"/>
+    <path d="M226 98 H240" stroke="#4A90D9" stroke-width="1.8" fill="none" marker-end="url(#ba)"/>
+    <path d="M342 98 H356" stroke="#4A90D9" stroke-width="1.8" fill="none" marker-end="url(#ba)"/>
+    <path d="M458 98 H472" stroke="#4A90D9" stroke-width="1.8" fill="none" marker-end="url(#ba)"/>
+    <path d="M574 98 H588" stroke="#4A90D9" stroke-width="1.8" fill="none" marker-end="url(#ba)"/>
+    <text x="60" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#4A90D9">R1</text>
+    <text x="176" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#22303f">R2</text>
+    <text x="292" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#22303f">R3</text>
+    <text x="408" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#22303f">R4</text>
+    <text x="524" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#22303f">R5</text>
+    <text x="640" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e9446">R6 掌握</text>
+    <text x="60" y="114" text-anchor="middle" font-size="11" fill="#7c94ab">D+1</text>
+    <text x="176" y="114" text-anchor="middle" font-size="11" fill="#7c94ab">D+3</text>
+    <text x="292" y="114" text-anchor="middle" font-size="11" fill="#7c94ab">D+7</text>
+    <text x="408" y="114" text-anchor="middle" font-size="11" fill="#7c94ab">D+14</text>
+    <text x="524" y="114" text-anchor="middle" font-size="11" fill="#7c94ab">D+29</text>
+    <text x="640" y="114" text-anchor="middle" font-size="11" fill="#59a371">D+59</text>
+  </g>
+  <text x="360" y="158" text-anchor="middle" font-size="12" fill="#7c94ab">间隔逐渐拉长，六次全完成，才判定"已掌握"</text>
+</svg>
+<p style="font-size:12.5px;color:#8fa6bb;text-align:center;margin:8px 0 4px;">图 每次复习的间隔都更长，却在遗忘发生的关键点上稳稳掐住</p>
+
+<p style="text-align:center;font-size:52px;font-weight:900;color:#1a1a1a;letter-spacing:3px;line-height:1;margin:56px 0 0;">02</p>
+<p style="text-align:center;font-size:21px;font-weight:bold;color:#4A90D9;margin:10px 0 28px;">我那个小小的记忆助手</p>
+
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+它就是一个很朴素的"背东西账本"。录入标题、正文，还能配张图。它自动按上面那张表的节奏，把六次复习给我排好。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+每天早上打开，它告诉我今天该复习哪些。<strong style="color:#4A90D9;font-weight:600;">逾期越久的排在越前面</strong>，怕你拖着拖着就放弃。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+我没骗你，有个我最喜欢的细节。它允许我<strong style="color:#4A90D9;font-weight:600;">补录</strong>。今天翻出一个十天前记的笔记，也能手动选一个学习日期，让计划从那天正确展开。不用因为"晚了"而作废。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+每条该复习多少、尝过几次，进度条上看得清清楚楚。点一下完成，它会突然冒句鼓励的话。设计得挺克制，不会尬。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+分类、统计、月历视图，该有的都有。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+和最不同的是<strong style="color:#4A90D9;font-weight:600;">数据全在本地。</strong>我的复习记录、手机里配的图，不上任何服务器。背东西这件事，本来就该是件私事。
+</p>
+
+<p style="text-align:center;font-size:52px;font-weight:900;color:#1a1a1a;letter-spacing:3px;line-height:1;margin:56px 0 0;">03</p>
+<p style="text-align:center;font-size:21px;font-weight:bold;color:#4A90D9;margin:10px 0 28px;">用了两个月的实话</p>
+
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+变化最直观的一条。同样一个新词，它到第 7 天、第 29 天我要复习的时候，<strong style="color:#4A90D9;font-weight:600;">基本没忘。</strong>因为每一次复习，都踩在快要忘的当口上。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+它不保证你更聪明。<strong style="color:#4A90D9;font-weight:600;">它只保证，你花在"反复背同一个东西"上的时间，更少。</strong>
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+很公平的提醒。这工具解决的是"什么时候复习"。至于你是不是真把它看进去，它管不了。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+我也说个大实话。坚持这件事，机器帮不了你多少。它只能把"该复习了"这句提醒，放到最恰当的时机。<strong style="color:#4A90D9;font-weight:600;">剩下那一步，还是得你自己点下去。</strong>
+</p>
+
+<p style="text-align:center;font-size:52px;font-weight:900;color:#1a1a1a;letter-spacing:3px;line-height:1;margin:56px 0 0;">04</p>
+<p style="text-align:center;font-size:21px;font-weight:bold;color:#4A90D9;margin:10px 0 28px;">说到底</p>
+
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+以前我总觉得遗忘是敌人，是大脑的缺陷，得跟它硬刚。
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+现在我换个看法。遗忘像个尽职的筛选器，只留下真正被反复加固的东西。<strong style="color:#4A90D9;font-weight:600;">你要做的不是别忘，是选对不再忘记的时刻。</strong>
+</p>
+<p style="font-size:15.5px;line-height:1.95;color:#22303f;margin:16px 0;text-align:left;letter-spacing:.5px;">
+聪明人不是不背。聪明人，只是背得巧。
+</p>
+
+<p style="font-size:15.5px;line-height:1.9;color:#7c94ab;margin:34px 0 8px;text-align:center;letter-spacing:.5px;">
+如果你想试试，这是个开源的微信小程序，导入就能用。数据都在你自己手里。
+</p>
+
+  </div>
+</div>
+<p class="toast" id="toast">已复制，去公众号后台粘贴吧</p>
+<script>
+  function copyArticle(){
+    var a=document.getElementById('article');
+    var html='\u5728\u6b64\u590d\u5236\u6b63\u6587\u5185\u5bb9'+a.innerHTML;
+    try{html=new XMLSerializer().serializeToString((function(){var t=document.createElement('div');t.innerHTML=a.innerHTML;return t;})());}catch(e){}
+    var tmp=document.createElement('textarea');tmp.value=html;document.body.appendChild(tmp);tmp.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(tmp);
+    var t=document.getElementById('toast');t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1600);
+  }
+</script>
+</body>
+</html>

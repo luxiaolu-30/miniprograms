@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="封面首图">
+  <rect width="1200" height="630" fill="#241505"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a2b1d"/>
+      <stop offset="1" stop-color="#1c1109"/>
+    </linearGradient>
+  </defs>
+  <text x="82" y="252" font-size="72" font-weight="bold" fill="#f4e9dc" font-family="PingFang SC, Microsoft YaHei, sans-serif">重要的经历</text>
+  <text x="82" y="356" font-size="72" font-weight="bold" fill="#b98a5e" font-family="PingFang SC, Microsoft YaHei, sans-serif">也值得被「间隔重复」</text>
+  <line x1="86" y1="400" x2="1118" y2="400" stroke="#6b4226" stroke-width="3"/>
+  <text x="82" y="470" font-size="34" fill="#ad9a83" font-family="PingFang SC, Microsoft YaHei, sans-serif">数字生命笔记 · 03</text>
+  <text x="84" y="536" font-size="28" fill="#a08a72" font-family="PingFang SC, Microsoft YaHei, sans-serif">有些话是写给未来自己的</text>
+</svg>
